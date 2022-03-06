@@ -85,7 +85,7 @@ window.addEventListener('scroll', () =>{
     if (window.innerWidth < 850 ){
       sea.style.top = `calc(150% - ${(scrollY- 1000)/2}px)`
     } else{
-      sea.style.top = `calc(100% - ${(scrollY- 2000)/2}px)`
+      sea.style.top = `calc(200% - ${(scrollY- 2000)/2}px)`
     }
 
 })

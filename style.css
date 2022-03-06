@@ -313,7 +313,6 @@ body > div{
 .sky{
   background: rgb(0,29,154);
   background: linear-gradient(180deg, rgba(0,29,154,1) 26%, rgba(0,179,196,1) 100%);
-  overflow-x: hidden;
 }
 
 .sky>img{
@@ -432,7 +431,7 @@ body > div{
 }
 
 .ground .title{
-  top: 180%;
+  top: 200%;
   z-index: 6;
 }
 
