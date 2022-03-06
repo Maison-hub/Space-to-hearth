@@ -1,0 +1,721 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #f1f1f1;
+  font-family: roboto, sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/*font-family: 'Nunito', sans-serif;
+  font-family: 'Oswald', sans-serif;*/
+
+body > div{
+  width: 100%;
+  height: 150vh;
+  position: relative;
+}
+
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 26%, rgba(40,0,139,1) 75%, rgba(0,29,154,1) 100%);
+  z-index: 99;
+}
+
+.loader h1{
+  position: absolute;
+  color: white;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+
+
+.loader div{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.loader div:nth-child(2){
+  animation: loader 1s infinite 0s ease-in-out alternate;
+}
+.loader div:nth-child(3){
+  animation: loader 1s infinite -1s ease-in-out alternate;
+}
+
+@keyframes loader{
+  from{
+    transform: scale(0) ;
+    opacity: 0;
+  }
+  to{
+    transform: scale(.8) ;
+    opacity: 1;
+  }
+}
+
+.display{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .5;
+  z-index: 6;
+  visibility: hidden;
+  -webkit-animation: DisplayfadeOut .5s;
+  animation: DisplayfadeOut .5s
+}
+
+.Displayshow {
+  visibility: visible;
+  -webkit-animation: DislpayfadeIn 1s;
+  animation: DisplayfadeIn 1s
+}
+
+@keyframes DisplayfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .5;
+  }
+}
+@keyframes DisplayfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.popup{
+  visibility: hidden;
+  position: absolute;
+  padding: 30px 10px 10px 10px;
+  background-color: #f1f1f1;
+  color: white;
+  border-radius: 5px;
+  border:solid 1px white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 7;
+  transition: all .4s ease-in-out 0s;
+  -webkit-box-shadow: 0px 0px 30px -5px #FFFFFF; 
+  box-shadow: 0px 0px 30px -5px #FFFFFF;
+  text-align: center;
+  -webkit-animation: fadeOut .5s;
+  animation: fadeOut .5s
+}
+
+.popup h1{
+  margin: 10px;
+}
+
+.btn-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .4s ease-in-out;
+}
+
+.btn-close:hover{
+  transform: rotate(90deg);
+}
+
+
+.popup h1{
+  font-size: 2vw;
+  color: black;
+}
+.popup p{
+  font-size: 1.5vw;
+  color: black;
+}
+
+@media screen and (max-width: 850px){
+  .popup{
+    width: 80vw;
+  }
+  .popup h1 {
+    font-size: 20px;
+  }
+  .popup p{
+    font-size: 15px;
+  }
+}
+
+
+.popup::before{
+  content: '';
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid #f1f1f1;
+}
+
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+/* SPACE */
+
+
+.space{
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 26%, rgba(40,0,139,1) 75%, rgba(0,29,154,1) 100%);
+}
+
+.star-container{
+  height: 100%;
+  width: 100%;
+}
+
+.space i{
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  overflow: hidden;
+}
+
+.title{
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  color: #f1f1f1;
+  font-size: 10vw;
+  font-family: 'Oswald', sans-serif;
+  z-index: 3;
+}
+
+.satelite{
+  position: absolute;
+  width: 15vw;
+  top: 40%;
+  left: 5vw;
+  z-index: 4;
+  transform-origin: center;
+  cursor: pointer;
+  animation: floatting 3s ease-in-out 1s infinite alternate;
+}
+
+@media screen and (max-width: 700px){
+  .satelite{
+    width: 100px;
+  }
+}
+
+@keyframes floatting{
+  from{
+    transform: translateY(5px) rotate(2deg);
+  }
+  to{
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+.spacePopup{
+  top: 30%;
+  left: 25vw;
+  margin: 100px 20px 20px 20px;
+}
+
+.spacePopup::before{
+  left: -20px;
+  top: 10px;
+}
+
+.spacePopup p{
+  font-size: 1.5vw ;
+}
+
+.spacePopup img{
+  margin: 10px;
+  width: 20vw;
+}
+
+@media screen and (max-width: 850px){
+  .spacePopup{
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    transform: translate(-50%, -50%);
+  }
+  .spacePopup::before{
+    display: none;
+  }
+  .spacePopup p{
+    font-size: 12px;
+  }
+  .spacePopup img{
+    width: 200px;
+  }
+}
+
+
+/* SKY */
+
+
+.sky{
+  background: rgb(0,29,154);
+  background: linear-gradient(180deg, rgba(0,29,154,1) 26%, rgba(0,179,196,1) 100%);
+}
+
+.sky>img{
+  width: 55vw;
+  position: absolute;
+  z-index: 2;
+}
+.sky img:nth-child(1){
+  top: -2%;
+  left: 0;
+}
+.sky img:nth-child(2){
+  top: 80%;
+  right: 0;
+}
+
+@media screen and (max-width: 700px){
+  .sky>img{
+    width: 300px;
+  }
+}
+
+.plane{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.plane img{
+  width: 10vw;
+  position: absolute;
+}
+
+@media screen and (max-width: 700px){
+  .plane img{
+    width: 80px;
+  }
+}
+
+.plane img:nth-child(1){
+  top: 20%;
+  transform: translateX(50px) rotate(45deg);
+  animation: plane1 5s linear 0s infinite normal ;
+  cursor: pointer;
+}
+
+@keyframes plane1 {
+  from{
+    transform: translateX(-15vw) rotate(45deg);
+  }
+  to{
+    transform: translateX(115vw) rotate(45deg);
+  }
+}
+
+.plane img:nth-child(2){
+  transform: rotate(225deg);
+  top: 75%;
+  animation: plane2 6s ease-in-out 0s infinite normal ;
+  cursor: pointer;
+  z-index: 5;
+}
+
+@keyframes plane2{
+  from{
+    transform: translateX(15vw) rotate(225deg);
+  }
+  to{
+    transform: translateX(-115vw) rotate(225deg);
+  }
+}
+
+.skyPopup{
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.skyPopup::before{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom:10px solid #f1f1f1;
+  left: 50%;
+  top: -20px;
+}
+
+.skyPopup2{
+  top: 44%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.skyPopup2::before{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top:10px solid #f1f1f1;
+  left: 50%;
+  bottom: -20px;
+}
+
+.plane img:hover{
+  animation-play-state: paused;
+}
+
+
+/* GROUND */
+
+.surface{
+  background: rgb(0,179,196);
+  background: linear-gradient(180deg, rgba(0,179,196,1) 0%, rgba(255,255,255,1) 60%);
+  height: 200vh;
+}
+
+.ground{
+  height: 50vh;
+  background: rgba(0,179,196,1);
+  background: linear-gradient(180deg, rgba(0,179,196,1) 0%, rgba(255,255,255,1) 95%);
+}
+
+.ground .title{
+  top: 180%;
+  z-index: 6;
+}
+
+.iceberg{
+  position: absolute;
+  width: 40vw;
+  height: 500px;
+  max-height: 500px;
+  max-width: 500px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 44%);
+  z-index: 2;
+  transform-origin: center;
+  animation: iceberg 3s ease-in-out 1s infinite alternate;
+}
+
+@media screen and (max-width: 850px){
+  .iceberg{
+    width: 50vw;
+    max-height: 500px;
+  }
+}
+@media screen and (max-width: 400px){
+  .iceberg{
+    width: 75vw;
+    max-height: 210px;
+  }
+}
+
+@keyframes iceberg{
+  from{
+    transform: translate(-50%, 44%);
+  }
+  to{
+    transform: translate(-50%, 46%);
+  }
+}
+
+.water{
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.wave{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(images/wave.png);
+  background-size: 100% 100%;
+}
+
+.wave#wave1 {
+  z-index: 2;
+  opacity: .8;
+  background-position-x: 400px;
+  animation: water 4s ease-in-out 0s infinite ;
+}
+
+.wave#wave2 {
+  z-index: 1;
+  opacity: 0.5;
+  background-position-x: 300px;
+  animation: water 4s ease-in-out .5s infinite ;
+
+}
+
+.wave#wave3 {
+  z-index: 3;
+  opacity: 0.2;
+  background-position-x: 200px;
+  animation: water 4s ease-in-out 1s infinite ;
+}
+
+.wave#wave4 {
+  z-index: 4;
+  opacity: 0.7;
+  background-position-x: 100px;
+  animation: water 4s ease-in-out 1.5s infinite ;
+}
+
+@keyframes water {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  
+}
+
+/* SEA */
+
+.deepSea{
+  background: rgb(5,109,255);
+  background: linear-gradient(180deg, rgba(5,109,255,1) 0%, rgba(0,0,0,1) 95%);
+  width: 100%;
+  height: 100vh;
+  top: 35%;
+  z-index: 1;
+}
+.surface h1{
+  z-index: 6;
+}
+
+.bottle1{
+  position: relative;
+  width: 100px ;
+  height: 100px;
+  top: 100%;
+  left: 10%;
+  opacity: 0.5;
+  animation: floatingBottle 3s ease-in-out 0s infinite alternate;
+  z-index: 8;
+  cursor: pointer;
+}
+@media screen and (max-width: 850px){
+  .bottle1{
+    width: 60px ;
+    height: 60px;
+  }
+}
+
+@keyframes floatingBottle {
+  from{
+    transform: translateY(5px) rotate(45deg);
+  }
+  to{
+    transform: translateY(-5px) rotate(40deg);
+  }
+}
+
+.bottleAnime{
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  z-index: 6;
+  visibility: hidden;
+  transform: translate(-50%, -50%) rotate(15deg) scale(1);
+  transition: all .4s ease-in-out;
+}
+
+@media screen and (max-width: 850px){
+  .bottleAnime{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.showBottle {
+  z-index: 8;
+  visibility: visible;
+  left: 15%;
+  transform: translate(-50%, -50%) rotate(15deg) scale(4);
+  -webkit-animation: enter 1s;
+  animation: enter 1s;
+}
+
+@keyframes enter {
+  from{
+    transform: translate(-50%, -50%) rotate(15deg) scale(1);
+  }
+  to{
+    left: 15%; 
+    transform: translate(-50%, -50%) rotate(15deg) scale(4);
+    z-index: 8;
+  }
+}
+
+.bottlePopup{
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  width: 65vw;
+  height: 85vh;
+  z-index: 8;
+}
+.bottlePopup::before{
+  left: -10px;
+  top: 50%;
+}
+
+@media screen and (max-width: 850px){
+  .bottlePopup{
+    left: 20%;
+  }
+  .bottlePopup h1 {
+    font-size: 20px;
+  }
+  .bottlePopup p{
+    font-size: 1.5vw;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .bottlePopup{
+    width: 80vw;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .showBottle{
+    visibility: hidden;
+  }
+  .bottlePopup h1 {
+    font-size: 15px;
+  }
+  .bottlePopup p{
+    font-size: 10px;
+  }
+}
+
+.basement{
+  z-index: 6;
+  width: 100%;
+  height: 10vh;
+  background: black;
+  overflow: hidden;
+}
+
+footer {
+  z-index: 6;
+  width: 100%;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+footer p{
+  padding: 20px;
+  font-size: 8px;
+}
+
+footer a{
+  text-decoration: underline;
+  color: white;
+}
+
+
+@media screen and (max-width: 850px){
+  .space{
+    height: 100vh;
+  }
+  .sky{
+    height: 100vh;
+  }
+  .surface{
+    height: 100vh;
+  }
+  .ground{
+    height: 80vh;
+  }
+  .deepSea{
+    height: 80vh;
+  }
+  .water{
+    height: 8%;
+  }
+}
+
+@media screen and (max-width: 500px){
+  footer{
+    flex-direction: column;
+  }
+  footer p{
+    padding: 5px;
+    font-size: 10px;
+  }
+  
+  footer a{
+    font-size: 8px;
+  }
+}
