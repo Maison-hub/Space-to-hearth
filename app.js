@@ -7,7 +7,18 @@ window.addEventListener('load', ()=>{
   body.style.overflowY = 'scroll'
 })
 
+let startInfo = document.querySelector('.start-info')
 
+window.addEventListener('scroll', () =>{
+  const {scrollTop, clientHeight} = document.documentElement;
+  if(scrollTop > 20){
+      startInfo.classList.add('disapear');
+      let dis = document.querySelector('.disapear')
+      dis.addEventListener('animationend', ()=>{
+          startInfo.style.display = 'none'
+      })
+  }
+})
 
 
 
@@ -81,7 +92,6 @@ window.addEventListener('scroll', () =>{
     wave2.style.backgroundPositionX = 300 + value * -2  + 'px'
     wave3.style.backgroundPositionX = 200 + value * 1.5 + 'px'
     wave4.style.backgroundPositionX = 100 + value * -1.8 + 'px'
-    console.log(window.innerWidth)
     if (window.innerWidth < 850 ){
       sea.style.top = `calc(150% - ${(scrollY- 1000)/2}px)`
     } else{
