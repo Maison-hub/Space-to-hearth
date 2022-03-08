@@ -15,13 +15,14 @@ let clickInfoDisplay = document.querySelector('.Clickinfodisplay')
 
 window.addEventListener('scroll', () =>{
   const {scrollTop, clientHeight} = document.documentElement;
+  console.log(scrollTop)
   if(scrollTop > 20){
       startInfo.classList.add('disapear');
       startInfo.addEventListener('animationend', ()=>{
       startInfo.style.display = 'none';
     })
   if (startInfo.classList.contains('disapear') && clickInfoToggle == true){
-    clickInfo.classList.add('dis-block');
+    clickInfo.classList.remove('dis-none');
     clickInfoDisplay.classList.add('dis-block')
     }
   }
@@ -115,11 +116,9 @@ let clickInfoToggle = true
 sat.onclick = function(){
   
   spacePopup.classList.toggle("show");
-  display.classList.toggle("Displayshow");
   let close = document.querySelector('.spacePopup .btn-close')
   close.onclick = function(){
     spacePopup.classList.remove("show")
-    display.classList.toggle("Displayshow");
   }
 
   clickInfoToggle = false
@@ -127,7 +126,7 @@ sat.onclick = function(){
   clickInfo.classList.add('disapear');
 
   clickInfo.addEventListener('animationend', ()=>{
-    clickInfo.classList.remove('dis-block');
+    clickInfo.classList.add('dis-none');
   })
   clickInfoDisplay.classList.add('disapear');
   
@@ -142,22 +141,18 @@ plane2 = document.querySelector('.plane img:nth-child(2)')
 plane1.onclick = function(){
   skyPopup = document.querySelector('.skyPopup')
   skyPopup.classList.toggle("show");
-  display.classList.toggle("Displayshow");
   let close = document.querySelector('.skyPopup .btn-close')
   close.onclick = function(){
     skyPopup.classList.remove("show")
-    display.classList.toggle("Displayshow");
   }
 }
 
 plane2.onclick = function(){
   skyPopup2 = document.querySelector('.skyPopup2')
   skyPopup2.classList.toggle("show");
-  display.classList.toggle("Displayshow");
   let close = document.querySelector('.skyPopup2 .btn-close')
   close.onclick = function(){
     skyPopup2.classList.remove("show")
-    display.classList.toggle("Displayshow");
   }
 }
 
@@ -168,13 +163,11 @@ bottle.onclick = function(){
   bottleAnime = document.querySelector('.bottleAnime')
   bottlePopup = document.querySelector('.bottlePopup')
   bottlePopup.classList.toggle("show");
-  display.classList.toggle("Displayshow");
   bottleAnime.classList.toggle("showBottle")
   let close = document.querySelector('.bottlePopup .btn-close')
   close.onclick = function(){
   bottlePopup.classList.remove("show");
   bottleAnime.classList.remove("showBottle")
-  display.classList.toggle("Displayshow");
   }
 }
 

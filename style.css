@@ -130,7 +130,7 @@ body > div{
   z-index: 9;
   color: white;
   width: 60vw;
-  display: none;
+  padding: 20px;
 }
 
 .click-info img{
@@ -152,12 +152,18 @@ body > div{
   text-shadow:#FFFFFF 1px 1px 5px;
 }
 
+@media screen and (max-width: 400px){
+  .click-info h1{
+    font-size: 5vw;
+  }
+}
+
 .Clickinfodisplay{
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: black;
   opacity: .8;
   z-index: 7;
@@ -189,24 +195,8 @@ body > div{
   display: block;
 }
 
-.display{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: .5;
-  z-index: 6;
-  visibility: hidden;
-  -webkit-animation: DisplayfadeOut .5s;
-  animation: DisplayfadeOut .5s
-}
-
-.Displayshow {
-  visibility: visible;
-  -webkit-animation: DislpayfadeIn 1s;
-  animation: DisplayfadeIn 1s
+.dis-none{
+  display: none;
 }
 
 @keyframes DisplayfadeIn {
@@ -239,7 +229,7 @@ body > div{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  z-index: 7;
+  z-index: 10;
   transition: all .4s ease-in-out 0s;
   -webkit-box-shadow: 0px 0px 30px -5px #FFFFFF; 
   box-shadow: 0px 0px 30px -5px #FFFFFF;
@@ -376,6 +366,11 @@ body > div{
   .satelite{
     width: 100px;
   }
+  .click-info{
+    left: calc(120px + 5vw);
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @keyframes floatting{
@@ -456,7 +451,7 @@ body > div{
 .plane{
   overflow: hidden;
   position: absolute;
-  width: 98vw;
+  width: 100vw;
   height: 100%;
 }
 
@@ -571,7 +566,7 @@ body > div{
 @media screen and (max-width: 850px){
   .iceberg{
     width: 50vw;
-    max-height: 500px;
+    max-height: 365px;
   }
 }
 @media screen and (max-width: 400px){
