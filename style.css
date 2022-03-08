@@ -10,13 +10,14 @@ body {
   font-family: roboto, sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
+  width: 100vw;
 }
 
 /*font-family: 'Nunito', sans-serif;
   font-family: 'Oswald', sans-serif;*/
 
 body > div{
-  width: 100%;
+  width: 100vw;
   height: 150vh;
   position: relative;
 }
@@ -78,7 +79,7 @@ body > div{
   color: white;
   position: absolute;
   position: fixed;
-  z-index: 6;
+  z-index: 20;
 }
 
 .start-info .text{
@@ -90,7 +91,7 @@ body > div{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 7;
+  z-index: 20;
 }
 
 .start-info h1,h2{
@@ -108,14 +109,61 @@ body > div{
 
 .down{
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   left: 50%;
-  top: 90%;
+  top: 85%;
   animation: down .5s ease-in-out infinite alternate;
   transform: translateX(-50%);
   z-index: 1;
 }
+
+.click-info{
+  position: absolute;
+  left: 30vw;
+  top: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  z-index: 9;
+  color: white;
+  width: 60vw;
+  display: none;
+}
+
+.click-info img{
+  width: 10vw;
+  animation: click .8s ease-out infinite alternate;
+}
+
+@keyframes click {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translate(-10px);
+  }
+}
+
+.click-info h1{
+  font-size: 20px;
+  text-shadow:#FFFFFF 1px 1px 5px;
+}
+
+.Clickinfodisplay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: .8;
+  z-index: 7;
+  display: none;
+}
+
 .disapear{
   animation: fadeOut .5s;
 }
@@ -135,6 +183,10 @@ body > div{
   to {
     opacity: 0;
   }
+}
+
+.dis-block{
+  display: block;
 }
 
 .display{
@@ -314,7 +366,7 @@ body > div{
   width: 15vw;
   top: 40%;
   left: 5vw;
-  z-index: 4;
+  z-index: 8;
   transform-origin: center;
   cursor: pointer;
   animation: floatting 3s ease-in-out 1s infinite alternate;
@@ -404,7 +456,7 @@ body > div{
 .plane{
   overflow: hidden;
   position: absolute;
-  width: 100vw;
+  width: 98vw;
   height: 100%;
 }
 
@@ -440,7 +492,7 @@ body > div{
   top: 75%;
   animation: plane2 8s ease-in-out 0s infinite normal ;
   cursor: pointer;
-  z-index: 5;
+  z-index: 3;
 }
 
 @keyframes plane2{
@@ -499,7 +551,7 @@ body > div{
 
 .ground .title{
   top: 200%;
-  z-index: 6;
+  z-index: 5;
 }
 
 .iceberg{
@@ -600,7 +652,6 @@ body > div{
 .deepSea{
   background: rgb(5,109,255);
   background: linear-gradient(180deg, rgba(5,109,255,1) 0%, rgba(0,0,0,1) 95%);
-  width: 100%;
   height: 100vh;
   top: 35%;
   z-index: 1;
@@ -615,9 +666,9 @@ body > div{
   height: 150px;
   top: 100%;
   left: 10%;
-  opacity: 0.5;
+  opacity: 0.8;
   animation: floatingBottle 3s ease-in-out 0s infinite alternate;
-  z-index: 8;
+  z-index: 6;
   cursor: pointer;
 }
 @media screen and (max-width: 850px){
@@ -715,7 +766,7 @@ body > div{
   .bottlePopup h1 {
     font-size: 15px;
   }
-  .bottlePopup p{
+  .bottlePopup  p{
     font-size: 10px;
   }
 }
@@ -730,7 +781,7 @@ body > div{
 
 footer {
   z-index: 6;
-  width: 100%;
+  width: 100vw;
   background: black;
   overflow: hidden;
   display: flex;

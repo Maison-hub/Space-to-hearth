@@ -9,19 +9,23 @@ window.addEventListener('load', ()=>{
 
 let startInfo = document.querySelector('.start-info')
 
+let clickInfo = document.querySelector('.click-info')
+let clickInfoDisplay = document.querySelector('.Clickinfodisplay')
+
+
 window.addEventListener('scroll', () =>{
   const {scrollTop, clientHeight} = document.documentElement;
   if(scrollTop > 20){
       startInfo.classList.add('disapear');
-      let dis = document.querySelector('.disapear')
-      dis.addEventListener('animationend', ()=>{
-          startInfo.style.display = 'none'
-      })
+      startInfo.addEventListener('animationend', ()=>{
+      startInfo.style.display = 'none';
+    })
+  if (startInfo.classList.contains('disapear') && clickInfoToggle == true){
+    clickInfo.classList.add('dis-block');
+    clickInfoDisplay.classList.add('dis-block')
+    }
   }
 })
-
-
-
 
 function star(){
     let container = document.querySelector('.star-container')
@@ -52,10 +56,12 @@ let spaceTitle = document.querySelector('.space .title')
 let sat = document.querySelector('.space img')
 let spacePopup = document.querySelector('.spacePopup')
 
+
 window.addEventListener('scroll', () =>{
     const {scrollTop, clientHeight} = document.documentElement;
     spaceTitle.style.top = `${clientHeight/2 - scrollTop/3}px`;
     sat.style.top = `calc(${40}% + ${scrollTop/8}px`
+    clickInfo.style.top = `calc(${40}% + ${scrollTop/8}px`
 })
 
 let spacePopupDiv = document.querySelector('.spacePopupDiv')
@@ -104,8 +110,10 @@ window.addEventListener('scroll', () =>{
 
 display = document.querySelector('.display')
 
+let clickInfoToggle = true
 
 sat.onclick = function(){
+  
   spacePopup.classList.toggle("show");
   display.classList.toggle("Displayshow");
   let close = document.querySelector('.spacePopup .btn-close')
@@ -113,8 +121,20 @@ sat.onclick = function(){
     spacePopup.classList.remove("show")
     display.classList.toggle("Displayshow");
   }
-}
 
+  clickInfoToggle = false
+
+  clickInfo.classList.add('disapear');
+
+  clickInfo.addEventListener('animationend', ()=>{
+    clickInfo.classList.remove('dis-block');
+  })
+  clickInfoDisplay.classList.add('disapear');
+  
+  clickInfoDisplay.addEventListener('animationend', ()=>{
+    clickInfoDisplay.classList.remove('dis-block')
+  })
+}
 
 plane1 = document.querySelector('.plane img:nth-child(1)')
 plane2 = document.querySelector('.plane img:nth-child(2)')
