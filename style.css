@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   width: 100vw;
+  scroll-behavior: smooth;
 }
 
 /*font-family: 'Nunito', sans-serif;
@@ -116,6 +117,7 @@ body > div{
   animation: down .5s ease-in-out infinite alternate;
   transform: translateX(-50%);
   z-index: 1;
+  cursor: pointer;
 }
 
 .click-info{
@@ -127,7 +129,7 @@ body > div{
   align-items: center;
   flex-direction: row;
   gap: 20px;
-  z-index: 9;
+  z-index: 15;
   color: white;
   width: 60vw;
   padding: 20px;
@@ -166,7 +168,7 @@ body > div{
   height: 110vh;
   background-color: black;
   opacity: .8;
-  z-index: 7;
+  z-index: 12;
   display: none;
 }
 
@@ -216,6 +218,58 @@ body > div{
   }
 }
 
+.info-btn{
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  z-index: 14;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  transition: all .4s;
+  -webkit-box-shadow: 5px 5px 15px 2px rgba(0,0,0,0.5); 
+  box-shadow: 5px 5px 15px 2px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.info-btn:hover{
+  transform: translateY(-8px);
+}
+
+.info-btn-low{
+  width: 50px ;
+}
+
+.info-btn{
+  user-select: none;
+}
+
+.info-btn img{
+  width: 25px;
+  height: 25px;
+  user-select: none;
+}
+
+@media screen and (max-width: 600px){
+  .info-btn{
+    width: 80px;
+    height: 35px;
+    border-radius: 35px;
+  }
+  .info-btn-low{
+    width: 35px;
+  }
+  .info-btn img{
+    width: 12px;
+    height: 12px;
+  }
+}
+
 .popup{
   visibility: hidden;
   position: absolute;
@@ -229,7 +283,7 @@ body > div{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  z-index: 10;
+  z-index: 13;
   transition: all .4s ease-in-out 0s;
   -webkit-box-shadow: 0px 0px 30px -5px #FFFFFF; 
   box-shadow: 0px 0px 30px -5px #FFFFFF;
@@ -319,6 +373,20 @@ body > div{
   }
 }
 
+.info-popup{
+  width: 70vw;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 14;
+}
+
+.info-popup::before{
+  display: none;
+}
+
 
 /* SPACE */
 
@@ -330,7 +398,7 @@ body > div{
 
 .star-container{
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 .space i{
@@ -356,7 +424,7 @@ body > div{
   width: 15vw;
   top: 40%;
   left: 5vw;
-  z-index: 8;
+  z-index: 13;
   transform-origin: center;
   cursor: pointer;
   animation: floatting 3s ease-in-out 1s infinite alternate;

@@ -12,10 +12,8 @@ let startInfo = document.querySelector('.start-info')
 let clickInfo = document.querySelector('.click-info')
 let clickInfoDisplay = document.querySelector('.Clickinfodisplay')
 
-
 window.addEventListener('scroll', () =>{
   const {scrollTop, clientHeight} = document.documentElement;
-  console.log(scrollTop)
   if(scrollTop > 20){
       startInfo.classList.add('disapear');
       startInfo.addEventListener('animationend', ()=>{
@@ -28,6 +26,34 @@ window.addEventListener('scroll', () =>{
   }
 })
 
+let infoBtn = document.querySelector('.info-btn')
+
+window.addEventListener('scroll', () =>{
+  let {scrollTop, clientHeight} = document.documentElement;
+  console.log(scrollTop)
+  if(scrollTop > 20){
+    infoBtn.classList.add('info-btn-low')
+    infoBtn.innerHTML = `<img src="./images/info.png" alt="information">`
+  }
+  else if(scrollTop < 20){
+    infoBtn.classList.remove('info-btn-low')
+    infoBtn.innerHTML = `<p>Informations</p>`
+  }
+
+})
+
+let down = document.querySelector('.down')
+
+function pageScroll() {
+  window.scroll({ 
+    top: 200, // could be negative value
+    left: 0, 
+    behavior: 'smooth' 
+  });
+}
+
+down.onclick = pageScroll
+
 function star(){
     let container = document.querySelector('.star-container')
     let n = 203
@@ -36,15 +62,15 @@ function star(){
         let cree = document.createElement('i')
 
         let size = Math.random()*3
-        let posX = Math.floor(Math.random()* container.getBoundingClientRect().width-8)
-        let posY = Math.floor(Math.random()* container.getBoundingClientRect().height)
+        let posX =  Math.floor(Math.random() * (95 - 5)) + 5;
+        let posY = Math.floor(Math.random() * (98 - 2)) + 2;
         let index = Math.floor(Math.random() * 3)
 
 
         cree.style.width = 2 + size + 'px'
         cree.style.height = 2 + size + 'px'
-        cree.style.left = posX + 'px'
-        cree.style.top = posY + 'px'
+        cree.style.left = posX + '%'
+        cree.style.top = posY + '%'
         cree.style.zIndex = index
         container.appendChild(cree);
         i++
@@ -81,7 +107,6 @@ window.addEventListener('scroll', () =>{
     cloud1.style.top = `calc(${5}% + ${(scrollTop-325)/8}px`
     cloud2.style.top = `calc(${80}% - ${(scrollTop-325)/6}px`
     sky.style.top = `${clientHeight/1.5 + (scrollTop-325)/5}px`;
-    /*info.style.top = `${clientHeight/2 + (scrollTop-325)/6}px`;*/
 })
 
 let wave1 = document.getElementById('wave1')
@@ -109,12 +134,21 @@ window.addEventListener('scroll', () =>{
 
 /* popUp */
 
+let infoPopup =  document.querySelector('.info-popup') 
+
+infoBtn.onclick = function(){
+  infoPopup.classList.toggle("show");
+  let close = document.querySelector('.info-popup .btn-close')
+  close.onclick = function(){
+    infoPopup.classList.remove("show")
+  }
+}
+
 display = document.querySelector('.display')
 
 let clickInfoToggle = true
 
 sat.onclick = function(){
-  
   spacePopup.classList.toggle("show");
   let close = document.querySelector('.spacePopup .btn-close')
   close.onclick = function(){
