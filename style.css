@@ -172,6 +172,26 @@ body > div{
   display: none;
 }
 
+.arrowUp{
+  width: 20vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  animation: up .5s ease-in-out infinite alternate;
+  z-index: 99;
+  display: none;
+}
+
+@keyframes up {
+  0%{
+    transform: translateY(-10px) translateX(-50%) translateY(-50%) rotate(180deg);
+  }
+  100%{
+    transform: translateY(10px) translateX(-50%) translateY(-50%) rotate(180deg);
+  }
+}
+
 .disapear{
   animation: fadeOut .5s;
 }
@@ -257,7 +277,6 @@ body > div{
 
 @media screen and (max-width: 600px){
   .info-btn{
-    width: 80px;
     height: 35px;
     border-radius: 35px;
   }
@@ -380,7 +399,7 @@ body > div{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  z-index: 14;
+  z-index: 16;
 }
 
 .info-popup::before{
@@ -537,8 +556,9 @@ body > div{
 .plane img:nth-child(1){
   top: 20%;
   transform: translateX(50px) rotate(45deg);
-  animation: plane1 8s linear 0s infinite normal ;
+  animation: plane1 10s linear 0s infinite normal ;
   cursor: pointer;
+  z-index: 3;
 }
 
 @keyframes plane1 {
@@ -553,7 +573,7 @@ body > div{
 .plane img:nth-child(2){
   transform: rotate(225deg);
   top: 75%;
-  animation: plane2 8s ease-in-out 0s infinite normal ;
+  animation: plane2 10s ease-in-out 0s infinite normal ;
   cursor: pointer;
   z-index: 3;
 }

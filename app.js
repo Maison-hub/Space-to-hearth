@@ -2,6 +2,12 @@ loader = document.querySelector('.loader');
 
 body = document.querySelector('body')
 
+//reset scroll befor loading//
+window.onbeforeunload = function(){ 
+  window.scrollTo (0, 0); 
+} 
+
+//set loader//
 window.addEventListener('load', ()=>{
   loader.style.display = 'none'
   body.style.overflowY = 'scroll'
@@ -12,25 +18,45 @@ let startInfo = document.querySelector('.start-info')
 let clickInfo = document.querySelector('.click-info')
 let clickInfoDisplay = document.querySelector('.Clickinfodisplay')
 
+let sat = document.querySelector('.space img')
+let satPos = sat.getBoundingClientRect()
+clickInfoDisplay.style.opacity = 0.8
+let disOpacity = 0.8
+
+let upArrow = document.querySelector('.arrowUp')
+
 window.addEventListener('scroll', () =>{
+
   const {scrollTop, clientHeight} = document.documentElement;
   if(scrollTop > 20){
       startInfo.classList.add('disapear');
       startInfo.addEventListener('animationend', ()=>{
       startInfo.style.display = 'none';
     })
-  if (startInfo.classList.contains('disapear') && clickInfoToggle == true){
-    clickInfo.classList.remove('dis-none');
-    clickInfoDisplay.classList.add('dis-block')
-    }
   }
-})
+  if (startInfo.classList.contains('disapear') && clickInfoToggle == true){
+      clickInfo.classList.remove('dis-none');
+      clickInfoDisplay.classList.add('dis-block');
+      satPos = sat.getBoundingClientRect()
+      console.log(disOpacity)
+      if ((satPos.y || satPos.top) < -50){
+        console.log(disOpacity)
+        disOpacity += 0.005
+        clickInfoDisplay.style.opacity = disOpacity
+        upArrow.classList.add('dis-block');
+      } 
+      if ((satPos.y || satPos.top) > -80){
+        clickInfoDisplay.style.opacity = 0.80
+        disOpacity = 0.80
+        upArrow.classList.remove('dis-block');
+      }   
+  }
+});
 
 let infoBtn = document.querySelector('.info-btn')
 
 window.addEventListener('scroll', () =>{
   let {scrollTop, clientHeight} = document.documentElement;
-  console.log(scrollTop)
   if(scrollTop > 20){
     infoBtn.classList.add('info-btn-low')
     infoBtn.innerHTML = `<img src="./images/info.png" alt="information">`
@@ -39,14 +65,13 @@ window.addEventListener('scroll', () =>{
     infoBtn.classList.remove('info-btn-low')
     infoBtn.innerHTML = `<p>Informations</p>`
   }
-
 })
 
 let down = document.querySelector('.down')
 
 function pageScroll() {
   window.scroll({ 
-    top: 200, // could be negative value
+    top: 200,
     left: 0, 
     behavior: 'smooth' 
   });
@@ -62,7 +87,7 @@ function star(){
         let cree = document.createElement('i')
 
         let size = Math.random()*3
-        let posX =  Math.floor(Math.random() * (95 - 5)) + 5;
+        let posX =  Math.floor(Math.random() * (98 - 2)) + 2;
         let posY = Math.floor(Math.random() * (98 - 2)) + 2;
         let index = Math.floor(Math.random() * 3)
 
@@ -80,9 +105,8 @@ star()
 
 
 let spaceTitle = document.querySelector('.space .title')
-let sat = document.querySelector('.space img')
-let spacePopup = document.querySelector('.spacePopup')
 
+let spacePopup = document.querySelector('.spacePopup')
 
 window.addEventListener('scroll', () =>{
     const {scrollTop, clientHeight} = document.documentElement;
@@ -154,6 +178,7 @@ sat.onclick = function(){
   close.onclick = function(){
     spacePopup.classList.remove("show")
   }
+  body.style.overflowY = 'scroll';
 
   clickInfoToggle = false
 
@@ -189,7 +214,6 @@ plane2.onclick = function(){
     skyPopup2.classList.remove("show")
   }
 }
-
 
 let bottle = document.querySelector('.bottle1')
 
